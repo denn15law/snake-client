@@ -9,7 +9,22 @@ const connect = function () {
   conn.setEncoding("utf8");
 
   conn.on("connect", () => {
-    console.log("Connected!");
+    console.log("Sucessfully connected to game server!");
+    conn.write("Name: DL");
+  });
+
+  conn.on("connect", () => {
+    setInterval(() => {
+      conn.write("Move: down");
+    }, 500);
+
+    // setTimeout(() => {
+    //   conn.write("Move: left");
+    // }, 1000);
+  });
+
+  conn.on("data", (data) => {
+    console.log(data);
   });
 
   return conn;
