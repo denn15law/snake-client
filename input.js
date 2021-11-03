@@ -33,7 +33,7 @@ const handleUserInput = function (key) {
   }
 
   if (key === "y") {
-    connection.write("Say: yum yum yum");
+    connection.write("Say: yummy in my tummy");
   }
 
   if (key === "u") {
