@@ -1,4 +1,8 @@
-const setUpInput = function () {
+let connection;
+
+const setUpInput = function (conn) {
+  connection = conn;
+
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -9,8 +13,23 @@ const setUpInput = function () {
 };
 
 const handleUserInput = function (key) {
+  //Ctrl + c to exit game
   if (key === "\u0003") {
     process.exit();
+  }
+
+  //W A S D controls
+  if (key === "w") {
+    connection.write("Move: up");
+  }
+  if (key === "a") {
+    connection.write("Move: left");
+  }
+  if (key === "s") {
+    connection.write("Move: down");
+  }
+  if (key === "d") {
+    connection.write("Move: right");
   }
 };
 module.exports = { setUpInput };
